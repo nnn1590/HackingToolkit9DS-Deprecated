@@ -6,15 +6,15 @@ set CiaExt=.cia
 set CiaFull=%CiaName%%CiaExt%
 echo Veuillez patienter, compilation de "%CiaFull%" en cours...
 echo
-ren %CiaFull%_Unpacked\ExtractedBanner\banner.cgfx banner0.bcmdl > /dev/null 2>&1
+# %CiaFull%_Unpacked\ExtractedBanner\banner.cgfx banner0.bcmdl > /dev/null 2>&1
 "%PROGRAMFILES%\HackingToolkit9DS\3dstool.exe" -cv -t banner -f %CiaFull%_Unpacked\banner.bin --banner-dir %CiaFull%_Unpacked/ExtractedBanner\ > /dev/null 2>&1
-ren %CiaFull%_Unpacked\ExtractedBanner\banner0.bcmdl banner.cgfx > /dev/null 2>&1
+# %CiaFull%_Unpacked\ExtractedBanner\banner0.bcmdl banner.cgfx > /dev/null 2>&1
 move /Y %CiaFull%_Unpacked\banner.bin %CiaFull%_Unpacked\ExtractedExeFS\banner.bin > /dev/null 2>&1
-ren %CiaFull%_Unpacked\ExtractedExeFS\banner.bin banner.bnr > /dev/null 2>&1
-ren %CiaFull%_Unpacked\ExtractedExeFS\icon.bin icon.icn > /dev/null 2>&1
+# %CiaFull%_Unpacked\ExtractedExeFS\banner.bin banner.bnr > /dev/null 2>&1
+# %CiaFull%_Unpacked\ExtractedExeFS\icon.bin icon.icn > /dev/null 2>&1
 "%PROGRAMFILES%\HackingToolkit9DS\3dstool.exe" -cvtfz exefs %CiaFull%_Unpacked/CustomExeFS.bin --header %CiaFull%_Unpacked\HeaderExeFS.bin --exefs-dir %CiaFull%_Unpacked\ExtractedExeFS > /dev/null 2>&1
-ren %CiaFull%_Unpacked\ExtractedExeFS\banner.bnr banner.bin > /dev/null 2>&1
-ren %CiaFull%_Unpacked\ExtractedExeFS\icon.icn icon.bin > /dev/null 2>&1
+# %CiaFull%_Unpacked\ExtractedExeFS\banner.bnr banner.bin > /dev/null 2>&1
+# %CiaFull%_Unpacked\ExtractedExeFS\icon.icn icon.bin > /dev/null 2>&1
 "%PROGRAMFILES%\HackingToolkit9DS\3dstool.exe" -cvtf romfs %CiaFull%_Unpacked/CustomRomFS.bin --romfs-dir %CiaFull%_Unpacked/ExtractedRomFS > /dev/null 2>&1
 "%PROGRAMFILES%\HackingToolkit9DS\3dstool.exe" -cvtf romfs %CiaFull%_Unpacked/CustomManual.bin --romfs-dir %CiaFull%_Unpacked/ExtractedManual > /dev/null 2>&1
 "%PROGRAMFILES%\HackingToolkit9DS\3dstool.exe" -cvtf romfs %CiaFull%_Unpacked/CustomDownloadPlay.bin --romfs-dir %CiaFull%_Unpacked/ExtractedDownloadPlay > /dev/null 2>&1
