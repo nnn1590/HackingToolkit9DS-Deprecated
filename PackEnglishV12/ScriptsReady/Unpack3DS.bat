@@ -26,9 +26,9 @@ del %1_Unpacked\DecryptedPartition7.bin > /dev/null 2>&1
 "%PROGRAMFILES%\HackingToolkit9DS\3dstool.exe" -xvtf romfs %1_Unpacked/DecryptedDownloadPlay.bin --romfs-dir %1_Unpacked/ExtractedDownloadPlay > /dev/null 2>&1
 "%PROGRAMFILES%\HackingToolkit9DS\3dstool.exe" -xvtf romfs %1_Unpacked/DecryptedN3DSUpdate.bin --romfs-dir %1_Unpacked/ExtractedN3DSUpdate > /dev/null 2>&1
 "%PROGRAMFILES%\HackingToolkit9DS\3dstool.exe" -xvtf romfs %1_Unpacked/DecryptedO3DSUpdate.bin --romfs-dir %1_Unpacked/ExtractedO3DSUpdate > /dev/null 2>&1
-# %1_Unpacked\ExtractedExeFS\banner.bnr banner.bin > /dev/null 2>&1
-# %1_Unpacked\ExtractedExeFS\icon.icn icon.bin > /dev/null 2>&1
+ren %1_Unpacked\ExtractedExeFS\banner.bnr banner.bin > /dev/null 2>&1
+ren %1_Unpacked\ExtractedExeFS\icon.icn icon.bin > /dev/null 2>&1
 copy %1_Unpacked\ExtractedExeFS\banner.bin %1_Unpacked/banner.bin > /dev/null 2>&1
 "%PROGRAMFILES%\HackingToolkit9DS\3dstool.exe" -xv -t banner -f %1_Unpacked\banner.bin --banner-dir %1_Unpacked\ExtractedBanner\ > /dev/null 2>&1
 del %1_Unpacked\banner.bin > /dev/null 2>&1
-# %1_Unpacked\ExtractedBanner\banner0.bcmdl banner.cgfx > /dev/null 2>&1
+ren %1_Unpacked\ExtractedBanner\banner0.bcmdl banner.cgfx > /dev/null 2>&1

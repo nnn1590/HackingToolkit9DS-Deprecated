@@ -65,12 +65,12 @@ del DecryptedPartition7.bin > /dev/null 2>&1
 "3dstool.exe" -xvtf romfs DecryptedDownloadPlay.bin --romfs-dir ExtractedDownloadPlay > /dev/null 2>&1
 "3dstool.exe" -xvtf romfs DecryptedN3DSUpdate.bin --romfs-dir ExtractedN3DSUpdate > /dev/null 2>&1
 "3dstool.exe" -xvtf romfs DecryptedO3DSUpdate.bin --romfs-dir ExtractedO3DSUpdate > /dev/null 2>&1
-# ExtractedExeFS\banner.bnr banner.bin > /dev/null 2>&1
-# ExtractedExeFS\icon.icn icon.bin > /dev/null 2>&1
+ren ExtractedExeFS\banner.bnr banner.bin > /dev/null 2>&1
+ren ExtractedExeFS\icon.icn icon.bin > /dev/null 2>&1
 copy ExtractedExeFS\banner.bin banner.bin > /dev/null 2>&1
 "3dstool.exe" -xv -t banner -f banner.bin --banner-dir ExtractedBanner\ > /dev/null 2>&1
 del banner.bin > /dev/null 2>&1
-# ExtractedBanner\banner0.bcmdl banner.cgfx > /dev/null 2>&1
+ren ExtractedBanner\banner0.bcmdl banner.cgfx > /dev/null 2>&1
 echo Extraction done!
 echo
 pause
@@ -84,15 +84,15 @@ clear
 echo
 echo Please wait, rebuild in progress...
 echo
-# ExtractedBanner\banner.cgfx banner0.bcmdl > /dev/null 2>&1
+ren ExtractedBanner\banner.cgfx banner0.bcmdl > /dev/null 2>&1
 "3dstool.exe" -cv -t banner -f banner.bin --banner-dir ExtractedBanner\ > /dev/null 2>&1
-# ExtractedBanner\banner0.bcmdl banner.cgfx > /dev/null 2>&1
+ren ExtractedBanner\banner0.bcmdl banner.cgfx > /dev/null 2>&1
 move /Y banner.bin ExtractedExeFS\banner.bin > /dev/null 2>&1
-# ExtractedExeFS\banner.bin banner.bnr > /dev/null 2>&1
-# ExtractedExeFS\icon.bin icon.icn > /dev/null 2>&1
+ren ExtractedExeFS\banner.bin banner.bnr > /dev/null 2>&1
+ren ExtractedExeFS\icon.bin icon.icn > /dev/null 2>&1
 "3dstool.exe" -cvtfz exefs CustomExeFS.bin --exefs-dir ExtractedExeFS --header HeaderExeFS.bin > /dev/null 2>&1
-# ExtractedExeFS\banner.bnr banner.bin > /dev/null 2>&1
-# ExtractedExeFS\icon.icn icon.bin > /dev/null 2>&1
+ren ExtractedExeFS\banner.bnr banner.bin > /dev/null 2>&1
+ren ExtractedExeFS\icon.icn icon.bin > /dev/null 2>&1
 "3dstool.exe" -cvtf romfs CustomRomFS.bin --romfs-dir ExtractedRomFS > /dev/null 2>&1
 "3dstool.exe" -cvtf romfs CustomManual.bin --romfs-dir ExtractedManual > /dev/null 2>&1
 "3dstool.exe" -cvtf romfs CustomDownloadPlay.bin --romfs-dir ExtractedDownloadPlay > /dev/null 2>&1
@@ -125,9 +125,9 @@ echo
 echo Please wait, extraction in progress...
 echo
 "ctrtool.exe" --content=DecryptedApp %RomCIA%.cia > /dev/null 2>&1
-# DecryptedApp.0000.* DecryptedPartition0.bin > /dev/null 2>&1
-# DecryptedApp.0001.* DecryptedPartition1.bin > /dev/null 2>&1
-# DecryptedApp.0002.* DecryptedPartition2.bin > /dev/null 2>&1
+ren DecryptedApp.0000.* DecryptedPartition0.bin > /dev/null 2>&1
+ren DecryptedApp.0001.* DecryptedPartition1.bin > /dev/null 2>&1
+ren DecryptedApp.0002.* DecryptedPartition2.bin > /dev/null 2>&1
 "3dstool.exe" -xvtf cxi DecryptedPartition0.bin --header HeaderNCCH0.bin --exh DecryptedExHeader.bin --exh-auto-key --exefs DecryptedExeFS.bin --exefs-auto-key --exefs-top-auto-key --romfs DecryptedRomFS.bin --romfs-auto-key --logo LogoLZ.bin --plain PlainRGN.bin > /dev/null 2>&1
 "3dstool.exe" -xvtf cfa DecryptedPartition1.bin --header HeaderNCCH1.bin --romfs DecryptedManual.bin --romfs-auto-key > /dev/null 2>&1
 "3dstool.exe" -xvtf cfa DecryptedPartition2.bin --header HeaderNCCH2.bin --romfs DecryptedDownloadPlay.bin --romfs-auto-key > /dev/null 2>&1
@@ -138,12 +138,12 @@ del DecryptedPartition2.bin > /dev/null 2>&1
 "3dstool.exe" -xvtf romfs DecryptedRomFS.bin --romfs-dir ExtractedRomFS > /dev/null 2>&1
 "3dstool.exe" -xvtf romfs DecryptedManual.bin --romfs-dir ExtractedManual > /dev/null 2>&1
 "3dstool.exe" -xvtf romfs DecryptedDownloadPlay.bin --romfs-dir ExtractedDownloadPlay > /dev/null 2>&1
-# ExtractedExeFS\banner.bnr banner.bin > /dev/null 2>&1
-# ExtractedExeFS\icon.icn icon.bin > /dev/null 2>&1
+ren ExtractedExeFS\banner.bnr banner.bin > /dev/null 2>&1
+ren ExtractedExeFS\icon.icn icon.bin > /dev/null 2>&1
 copy ExtractedExeFS\banner.bin banner.bin > /dev/null 2>&1
 "3dstool.exe" -xv -t banner -f banner.bin --banner-dir ExtractedBanner\ > /dev/null 2>&1
 del banner.bin > /dev/null 2>&1
-# ExtractedBanner\banner0.bcmdl banner.cgfx > /dev/null 2>&1
+ren ExtractedBanner\banner0.bcmdl banner.cgfx > /dev/null 2>&1
 echo Extraction done!
 echo
 pause
@@ -159,17 +159,17 @@ clear
 echo
 echo Please wait, rebuild in progress...
 echo
-# ExtractedBanner\banner.cgfx banner0.bcmdl > /dev/null 2>&1
+ren ExtractedBanner\banner.cgfx banner0.bcmdl > /dev/null 2>&1
 "3dstool.exe" -cv -t banner -f banner.bin --banner-dir ExtractedBanner\ > /dev/null 2>&1
-# ExtractedBanner\banner0.bcmdl banner.cgfx > /dev/null 2>&1
+ren ExtractedBanner\banner0.bcmdl banner.cgfx > /dev/null 2>&1
 move /Y banner.bin ExtractedExeFS\banner.bin > /dev/null 2>&1
-# ExtractedExeFS\banner.bin banner.bnr > /dev/null 2>&1
-# ExtractedExeFS\icon.bin icon.icn > /dev/null 2>&1
-# ExtractedExeFS\banner.bin banner.bnr > /dev/null 2>&1
-# ExtractedExeFS\icon.bin icon.icn > /dev/null 2>&1
+ren ExtractedExeFS\banner.bin banner.bnr > /dev/null 2>&1
+ren ExtractedExeFS\icon.bin icon.icn > /dev/null 2>&1
+ren ExtractedExeFS\banner.bin banner.bnr > /dev/null 2>&1
+ren ExtractedExeFS\icon.bin icon.icn > /dev/null 2>&1
 "3dstool.exe" -cvtfz exefs CustomExeFS.bin --header HeaderExeFS.bin --exefs-dir ExtractedExeFS > /dev/null 2>&1
-# ExtractedExeFS\banner.bnr banner.bin > /dev/null 2>&1
-# ExtractedExeFS\icon.icn icon.bin > /dev/null 2>&1
+ren ExtractedExeFS\banner.bnr banner.bin > /dev/null 2>&1
+ren ExtractedExeFS\icon.icn icon.bin > /dev/null 2>&1
 "3dstool.exe" -cvtf romfs CustomRomFS.bin --romfs-dir ExtractedRomFS > /dev/null 2>&1
 "3dstool.exe" -cvtf romfs CustomManual.bin --romfs-dir ExtractedManual > /dev/null 2>&1
 "3dstool.exe" -cvtf romfs CustomDownloadPlay.bin --romfs-dir ExtractedDownloadPlay > /dev/null 2>&1
@@ -225,7 +225,7 @@ goto:TitleMenu
 clear
 echo
 "3dstool.exe" -x -t banner -f banner.bin --banner-dir ExtractedBanner\ > /dev/null 2>&1
-# ExtractedBanner\banner0.bcmdl banner.cgfx > /dev/null 2>&1
+ren ExtractedBanner\banner0.bcmdl banner.cgfx > /dev/null 2>&1
 echo Banner extracted!
 echo
 pause
@@ -234,9 +234,9 @@ goto:TitleMenu
 :RebuildBanner
 clear
 echo
-# ExtractedBanner\banner.cgfx banner0.bcmdl > /dev/null 2>&1
+ren ExtractedBanner\banner.cgfx banner0.bcmdl > /dev/null 2>&1
 "3dstool.exe" -c -t banner -f banner.bin --banner-dir ExtractedBanner\ > /dev/null 2>&1
-# ExtractedBanner\banner0.bcmdl banner.cgfx > /dev/null 2>&1
+ren ExtractedBanner\banner0.bcmdl banner.cgfx > /dev/null 2>&1
 echo Banner created!
 echo
 pause
@@ -386,7 +386,7 @@ if /i "%DecompressCode%"=="Y" (SET DC=--decompresscode) else (SET DC=)
 del ExtractedExeFS\.bin > /dev/null 2>&1
 copy ExtractedExeFS\banner.bin banner.bin > /dev/null 2>&1
 "3dstool.exe" -x -t banner -f banner.bin --banner-dir ExtractedBanner\ > /dev/null 2>&1
-# ExtractedBanner\banner0.bcmdl banner.cgfx > /dev/null 2>&1
+ren ExtractedBanner\banner0.bcmdl banner.cgfx > /dev/null 2>&1
 del banner.bin > /dev/null 2>&1
 echo
 echo Extraction done

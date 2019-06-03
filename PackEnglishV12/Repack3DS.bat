@@ -6,15 +6,15 @@ set CciExt=.3ds
 set CciFull=%CciName%%CciExt%
 echo Please wait, rebuild of "%CciFull%" in progress...
 echo
-# %CciFull%_Unpacked\ExtractedBanner\banner.cgfx banner0.bcmdl > /dev/null 2>&1
+ren %CciFull%_Unpacked\ExtractedBanner\banner.cgfx banner0.bcmdl > /dev/null 2>&1
 "3dstool.exe" -cv -t banner -f %CciFull%_Unpacked\banner.bin --banner-dir %CciFull%_Unpacked/ExtractedBanner\ > /dev/null 2>&1
-# %CciFull%_Unpacked\ExtractedBanner\banner0.bcmdl banner.cgfx > /dev/null 2>&1
+ren %CciFull%_Unpacked\ExtractedBanner\banner0.bcmdl banner.cgfx > /dev/null 2>&1
 move /Y %CciFull%_Unpacked\banner.bin %CciFull%_Unpacked\ExtractedExeFS\banner.bin > /dev/null 2>&1
-# %CciFull%_Unpacked\ExtractedExeFS\banner.bin banner.bnr > /dev/null 2>&1
-# %CciFull%_Unpacked\ExtractedExeFS\icon.bin icon.icn > /dev/null 2>&1
+ren %CciFull%_Unpacked\ExtractedExeFS\banner.bin banner.bnr > /dev/null 2>&1
+ren %CciFull%_Unpacked\ExtractedExeFS\icon.bin icon.icn > /dev/null 2>&1
 "3dstool.exe" -cvtfz exefs %CciFull%_Unpacked/CustomExeFS.bin --header %CciFull%_Unpacked\HeaderExeFS.bin --exefs-dir %CciFull%_Unpacked\ExtractedExeFS > /dev/null 2>&1
-# %CciFull%_Unpacked\ExtractedExeFS\banner.bnr banner.bin > /dev/null 2>&1
-# %CciFull%_Unpacked\ExtractedExeFS\icon.icn icon.bin > /dev/null 2>&1
+ren %CciFull%_Unpacked\ExtractedExeFS\banner.bnr banner.bin > /dev/null 2>&1
+ren %CciFull%_Unpacked\ExtractedExeFS\icon.icn icon.bin > /dev/null 2>&1
 "3dstool.exe" -cvtf romfs %CciFull%_Unpacked/CustomRomFS.bin --romfs-dir %CciFull%_Unpacked/ExtractedRomFS > /dev/null 2>&1
 "3dstool.exe" -cvtf romfs %CciFull%_Unpacked/CustomManual.bin --romfs-dir %CciFull%_Unpacked/ExtractedManual > /dev/null 2>&1
 "3dstool.exe" -cvtf romfs %CciFull%_Unpacked/CustomDownloadPlay.bin --romfs-dir %CciFull%_Unpacked/ExtractedDownloadPlay > /dev/null 2>&1
