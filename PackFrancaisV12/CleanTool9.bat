@@ -1,13 +1,13 @@
-@echo off
-title CleanTool9 par Asia81
-color C
-cls
-echo.
+#!/bin/bash +H
+echo === CleanTool9 par Asia81 ===
+echo -ne "\e[31m"
+clear
+echo
 echo !! ATTENTION !! ATTENTION !! ATTENTION !! ATTENTION !! ATTENTION !!
 echo !! ATTENTION !! ATTENTION !! ATTENTION !! ATTENTION !! ATTENTION !!
-echo.
+echo
 echo Ce fichier va effacer les fichiers suivants de ce dossier :
-echo.
+echo
 echo - Tous les fichiers .xorpad
 echo - Tous les fichiers .3ds
 echo - Tous les fichiers .cci
@@ -21,29 +21,30 @@ echo - Tous les fichiers .tmd
 echo - Tous les fichiers .cmd
 echo - Tous les fichiers .bin
 echo - Tous les fichiers .lz
-echo - Tous les dossiers "Extracted*"
-echo.
+echo - Tous les dossiers \"Extracted*\"
+echo
 echo !! ATTENTION !! ATTENTION !! ATTENTION !! ATTENTION !! ATTENTION !!
 echo !! ATTENTION !! ATTENTION !! ATTENTION !! ATTENTION !! ATTENTION !!
-echo.
+echo
 pause
-del *.xorpad >NUL 2>NUL
-del *.3ds >NUL 2>NUL
-del *.cci >NUL 2>NUL
-del *.cxi >NUL 2>NUL
-del *.cia >NUL 2>NUL
-del *.app >NUL 2>NUL
-del *.out >NUL 2>NUL
-del *.cfa >NUL 2>NUL
-del *.sav >NUL 2>NUL
-del *.tmd >NUL 2>NUL
-del *.cmd >NUL 2>NUL
-del *.bin >NUL 2>NUL
-del *.lz >NUL 2>NUL
-rmdir ExtractedExeFS /s /q >NUL 2>NUL
-rmdir ExtractedRomFS /s /q >NUL 2>NUL
-rmdir ExtractedBanner /s /q >NUL 2>NUL
-rmdir ExtractedManual /s /q >NUL 2>NUL
-rmdir ExtractedDownloadPlay /s /q >NUL 2>NUL
-rmdir ExtractedO3DSUpdate /s /q >NUL 2>NUL
-rmdir ExtractedN3DSUpdate /s /q >NUL 2>NUL
+echo -ne "\e[m"
+rm *.xorpad > /dev/null 2>&1
+rm *.3ds > /dev/null 2>&1
+rm *.cci > /dev/null 2>&1
+rm *.cxi > /dev/null 2>&1
+rm *.cia > /dev/null 2>&1
+rm *.app > /dev/null 2>&1
+rm *.out > /dev/null 2>&1
+rm *.cfa > /dev/null 2>&1
+rm *.sav > /dev/null 2>&1
+rm *.tmd > /dev/null 2>&1
+rm *.cmd > /dev/null 2>&1
+rm *.bin > /dev/null 2>&1
+rm *.lz > /dev/null 2>&1
+rm -rf ExtractedExeFS > /dev/null 2>&1
+rm -rf ExtractedRomFS > /dev/null 2>&1
+rm -rf ExtractedBanner > /dev/null 2>&1
+rm -rf ExtractedManual > /dev/null 2>&1
+rm -rf ExtractedDownloadPlay > /dev/null 2>&1
+rm -rf ExtractedO3DSUpdate > /dev/null 2>&1
+rm -rf ExtractedN3DSUpdate > /dev/null 2>&1
