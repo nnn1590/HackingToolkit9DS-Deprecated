@@ -73,7 +73,7 @@ del banner.bin > /dev/null 2>&1
 mv ExtractedBanner\banner0.bcmdl banner.cgfx > /dev/null 2>&1
 echo Extraction termin‚e !
 echo
-pause
+read -rsn1 -p"Appuyez sur n'importe quelle touche pour continuer..."; echo
 goto:TitleMenu
 
 :Rebuild3DS
@@ -112,7 +112,7 @@ del CustomPartition6.bin > /dev/null 2>&1
 del CustomPartition7.bin > /dev/null 2>&1
 echo Compilation termin‚e !
 echo
-pause
+read -rsn1 -p"Appuyez sur n'importe quelle touche pour continuer..."; echo
 goto:TitleMenu
 
 :ExtractCIA
@@ -146,7 +146,7 @@ del banner.bin > /dev/null 2>&1
 mv ExtractedBanner\banner0.bcmdl banner.cgfx > /dev/null 2>&1
 echo Extraction termin‚e !
 echo
-pause
+read -rsn1 -p"Appuyez sur n'importe quelle touche pour continuer..."; echo
 goto:TitleMenu
 
 :RebuildCIA
@@ -183,7 +183,7 @@ if exist CustomPartition2.bin (SET ARG2=-content CustomPartition2.bin:2:0x02) > 
 "%PROGRAMFILES%\HackingToolkit9DS\makerom.exe" -target p -ignoresign -f cia %ARG0% %ARG1% %ARG2% -minor %MinorVer% -micro %MicroVer% -o %OutputRomCIA%_Edited.cia > /dev/null 2>&1
 echo Compilation termin‚e !
 echo
-pause
+read -rsn1 -p"Appuyez sur n'importe quelle touche pour continuer..."; echo
 goto:TitleMenu
 
 :DecryptedCXI
@@ -204,7 +204,7 @@ echo
 "%PROGRAMFILES%\HackingToolkit9DS\ctrtool.exe" -t exefs --exefsdir=./ExtractedExeFS DecryptedExeFS.bin %DC% > /dev/null 2>&1
 echo Extraction termin‚e !
 echo
-pause
+read -rsn1 -p"Appuyez sur n'importe quelle touche pour continuer..."; echo
 goto:TitleMenu
 
 :MassExtractor
@@ -228,7 +228,7 @@ echo
 mv ExtractedBanner\banner0.bcmdl banner.cgfx > /dev/null 2>&1
 echo BanniŠre extraite !
 echo
-pause
+read -rsn1 -p"Appuyez sur n'importe quelle touche pour continuer..."; echo
 goto:TitleMenu
 
 :RebuildBanner
@@ -239,7 +239,7 @@ mv ExtractedBanner\banner.cgfx banner0.bcmdl > /dev/null 2>&1
 mv ExtractedBanner\banner0.bcmdl banner.cgfx > /dev/null 2>&1
 echo BanniŠre compil‚e !
 echo
-pause
+read -rsn1 -p"Appuyez sur n'importe quelle touche pour continuer..."; echo
 goto:TitleMenu
 
 :ExtractNcchPartition
@@ -273,7 +273,7 @@ clear
 echo
 echo Extraction termin‚e !
 echo
-pause
+read -rsn1 -p"Appuyez sur n'importe quelle touche pour continuer..."; echo
 goto:TitleMenu
 
 :ExtractNCCH-ExeFS
@@ -391,7 +391,7 @@ del banner.bin > /dev/null 2>&1
 echo
 echo Extraction termin‚e !
 echo
-pause
+read -rsn1 -p"Appuyez sur n'importe quelle touche pour continuer..."; echo
 goto:TitleMenu
 
 :ExtractRomFS
@@ -402,7 +402,7 @@ echo Veuillez patienter, extraction en cours...
 echo
 echo Extraction termin‚e !
 echo
-pause
+read -rsn1 -p"Appuyez sur n'importe quelle touche pour continuer..."; echo
 goto:TitleMenu
 
 :ExtractManual
@@ -413,7 +413,7 @@ echo Veuillez patienter, extraction en cours...
 echo
 echo Extraction termin‚e !
 echo
-pause
+read -rsn1 -p"Appuyez sur n'importe quelle touche pour continuer..."; echo
 goto:TitleMenu
 
 :ExtractDownloadPlay
@@ -424,7 +424,7 @@ echo Veuillez patienter, extraction en cours...
 echo
 echo Extraction termin‚e !
 echo
-pause
+read -rsn1 -p"Appuyez sur n'importe quelle touche pour continuer..."; echo
 goto:TitleMenu
 
 :ExtractO3DSUpdate
@@ -435,7 +435,7 @@ echo Veuillez patienter, extraction en cours...
 echo
 echo Extraction termin‚e !
 echo
-pause
+read -rsn1 -p"Appuyez sur n'importe quelle touche pour continuer..."; echo
 goto:TitleMenu
 
 :ExtractN3DSUpdate
@@ -446,5 +446,5 @@ echo Veuillez patienter, extraction en cours...
 echo
 echo Extraction termin‚e !
 echo
-pause
+read -rsn1 -p"Appuyez sur n'importe quelle touche pour continuer..."; echo
 goto:TitleMenu

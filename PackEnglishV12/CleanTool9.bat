@@ -26,7 +26,7 @@ echo
 echo !! WARNING !! WARNING !! WARNING !! WARNING !! WARNING !! WARNING !!
 echo !! WARNING !! WARNING !! WARNING !! WARNING !! WARNING !! WARNING !!
 echo
-pause
+read -rsn1 -p"Press any key to continue..."; echo
 echo -ne "\e[m"
 rm *.xorpad > /dev/null 2>&1
 rm *.3ds > /dev/null 2>&1

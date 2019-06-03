@@ -26,7 +26,7 @@ echo
 echo !! ATTENTION !! ATTENTION !! ATTENTION !! ATTENTION !! ATTENTION !!
 echo !! ATTENTION !! ATTENTION !! ATTENTION !! ATTENTION !! ATTENTION !!
 echo
-pause
+read -rsn1 -p"Appuyez sur n'importe quelle touche pour continuer..."; echo
 echo -ne "\e[m"
 rm *.xorpad > /dev/null 2>&1
 rm *.3ds > /dev/null 2>&1
