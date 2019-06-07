@@ -54,5 +54,5 @@ ___
  1. [これ](https://raw.githubusercontent.com/dnasdw/3dstool/master/bin/ext_key.txt)をダウンロードする。<br>
 `wget https://raw.githubusercontent.com/dnasdw/3dstool/master/bin/ext_key.txt`
  2. `ext_key.txt` を新しいものに置き換える。<br>
-Wgetは基本的にファイルを上書きするので、`ext_key.txt` があるディレクトリで実行した場合不要になる可能性があります。
+Wgetは基本的にファイルを上書きするので、 `ext_key.txt` があるディレクトリで実行した場合不要になる可能性があります。
  3. 完了！
