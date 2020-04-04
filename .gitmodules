@@ -1,0 +1,6 @@
+[submodule "Project_CTR"]
+	path = Project_CTR
+	url = https://github.com/jakcron/Project_CTR.git
+[submodule "3dstool"]
+	path = 3dstool
+	url = https://github.com/dnasdw/3dstool.git
