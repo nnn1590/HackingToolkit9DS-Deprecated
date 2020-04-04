@@ -51,10 +51,12 @@ or
 
  1. `git clone https://github.com/nnn1590/HackingToolkit9DS-Deprecated-.git --recursive` (If you didn't specify `--recursive` when cloning, execute: `git submodule update --init --recursive`)
  2. `cp 3dstool/bin/ext_key.txt PackEnglishV12/ && cp 3dstool/bin/ext_key.txt PackFrancaisV12/`
+ 3. Done!
 
 ## How to build `3dstool`, `ctrtool` and `makerom`
  1. `git clone https://github.com/nnn1590/HackingToolkit9DS-Deprecated-.git --recursive` (If you didn't specify `--recursive` when cloning, execute: `git submodule update --init --recursive`)
  2. `make`
+ 3. Done!
 
 ## License
 - `3dstool`: MIT License, Copyright (c) 2014-2020 Daowen Sun
