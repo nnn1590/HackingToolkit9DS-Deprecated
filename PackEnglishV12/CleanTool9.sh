@@ -1,10 +1,12 @@
-#!/bin/bash +H
+#!/bin/bash +fH
+cd $(dirname ${0})
+
 echo === CleanTool9 by Asia81 ===
 echo -ne "\e[31m"
 clear
 echo
-echo !! WARNING !! WARNING !! WARNING !! WARNING !! WARNING !! WARNING !!
-echo !! WARNING !! WARNING !! WARNING !! WARNING !! WARNING !! WARNING !!
+echo '!! WARNING !! WARNING !! WARNING !! WARNING !! WARNING !! WARNING !!'
+echo '!! WARNING !! WARNING !! WARNING !! WARNING !! WARNING !! WARNING !!'
 echo
 echo This file will erase the following files in this folder:
 echo
@@ -23,8 +25,8 @@ echo - All .bin files
 echo - All .lz files
 echo - All \"Extracted*\" folders
 echo
-echo !! WARNING !! WARNING !! WARNING !! WARNING !! WARNING !! WARNING !!
-echo !! WARNING !! WARNING !! WARNING !! WARNING !! WARNING !! WARNING !!
+echo '!! WARNING !! WARNING !! WARNING !! WARNING !! WARNING !! WARNING !!'
+echo '!! WARNING !! WARNING !! WARNING !! WARNING !! WARNING !! WARNING !!'
 echo
 read -rsn1 -p"Press any key to continue..."; echo
 echo -ne "\e[m"

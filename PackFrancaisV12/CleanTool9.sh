@@ -1,10 +1,12 @@
-#!/bin/bash +H
+#!/bin/bash +fH
+cd $(dirname ${0})
+
 echo === CleanTool9 par Asia81 ===
 echo -ne "\e[31m"
 clear
 echo
-echo !! ATTENTION !! ATTENTION !! ATTENTION !! ATTENTION !! ATTENTION !!
-echo !! ATTENTION !! ATTENTION !! ATTENTION !! ATTENTION !! ATTENTION !!
+echo '!! ATTENTION !! ATTENTION !! ATTENTION !! ATTENTION !! ATTENTION !!'
+echo '!! ATTENTION !! ATTENTION !! ATTENTION !! ATTENTION !! ATTENTION !!'
 echo
 echo Ce fichier va effacer les fichiers suivants de ce dossier :
 echo
@@ -23,8 +25,8 @@ echo - Tous les fichiers .bin
 echo - Tous les fichiers .lz
 echo - Tous les dossiers \"Extracted*\"
 echo
-echo !! ATTENTION !! ATTENTION !! ATTENTION !! ATTENTION !! ATTENTION !!
-echo !! ATTENTION !! ATTENTION !! ATTENTION !! ATTENTION !! ATTENTION !!
+echo '!! ATTENTION !! ATTENTION !! ATTENTION !! ATTENTION !! ATTENTION !!'
+echo '!! ATTENTION !! ATTENTION !! ATTENTION !! ATTENTION !! ATTENTION !!'
 echo
 read -rsn1 -p"Appuyez sur n'importe quelle touche pour continuer..."; echo
 echo -ne "\e[m"
