@@ -40,19 +40,21 @@ Contacts:
 
 If you fork it, or do anything with it, do what you want without asking.  
 But please, just give some credits, thanks!
-___
-#### How to update `ext_key.txt`
+
+## How to update `ext_key.txt`
 `ext_key.txt` is in the `Pack*V12/` directory.
  1. Download [this](https://raw.githubusercontent.com/dnasdw/3dstool/master/bin/ext_key.txt).<br>
 `wget https://raw.githubusercontent.com/dnasdw/3dstool/master/bin/ext_key.txt`
  2. Replace `ext_key.txt` with a new one.<br>
 Since Wget basically overwrites the file, it may not be necessary if you run it in the directory where `ext_key.txt` is.
  3. Done!
-___
-#### `ext_key.txt` のアップデート方法
-`ext_key.txt` は `Pack*V12/` ディレクトリにあります。
- 1. [これ](https://raw.githubusercontent.com/dnasdw/3dstool/master/bin/ext_key.txt)をダウンロードする。<br>
-`wget https://raw.githubusercontent.com/dnasdw/3dstool/master/bin/ext_key.txt`
- 2. `ext_key.txt` を新しいものに置き換える。<br>
-Wgetは基本的にファイルを上書きするので、 `ext_key.txt` があるディレクトリで実行した場合不要になる可能性があります。
- 3. 完了！
+
+or
+
+ 1. `git clone https://github.com/nnn1590/HackingToolkit9DS-Deprecated-.git --recursive` If you didn't specify `--recursive` when cloning, execute: `git submodule update --init --recursive`)
+ 2. `cp 3dstool/bin/ext_key.txt PackEnglishV12/ && cp 3dstool/bin/ext_key.txt PackFrancaisV12/`
+
+## License
+- `3dstool`: MIT License, Copyright (c) 2014-2020 Daowen Sun
+- `ctrtool`: MIT License, Copyright (c) 2012 neimod, Copyright (c) 2014 3DSGuy
+- `makerom`: MIT License, Copyright (c) 2014 3DSGuy, Copyright (c) 2014 applestash, Copyright (c) 2015-2016 Jakcron
