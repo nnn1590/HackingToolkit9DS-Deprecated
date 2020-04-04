@@ -43,16 +43,19 @@ But please, just give some credits, thanks!
 
 ## How to update `ext_key.txt`
 `ext_key.txt` is in the `Pack*V12/` directory.
- 1. Download [this](https://raw.githubusercontent.com/dnasdw/3dstool/master/bin/ext_key.txt).<br>
-`wget https://raw.githubusercontent.com/dnasdw/3dstool/master/bin/ext_key.txt`
- 2. Replace `ext_key.txt` with a new one.<br>
-Since Wget basically overwrites the file, it may not be necessary if you run it in the directory where `ext_key.txt` is.
+
+ 1. Download [this](https://raw.githubusercontent.com/dnasdw/3dstool/master/bin/ext_key.txt). `wget https://raw.githubusercontent.com/dnasdw/3dstool/master/bin/ext_key.txt`
+ 2. Replace `ext_key.txt` with a new one. Since Wget basically overwrites the file, it may not be necessary if you run it in the directory where `ext_key.txt` is.
  3. Done!
 
 or
 
  1. `git clone https://github.com/nnn1590/HackingToolkit9DS-Deprecated-.git --recursive` If you didn't specify `--recursive` when cloning, execute: `git submodule update --init --recursive`)
  2. `cp 3dstool/bin/ext_key.txt PackEnglishV12/ && cp 3dstool/bin/ext_key.txt PackFrancaisV12/`
+
+## How to build `3dstool`, `ctrtool` and `makerom`
+ 1. `git clone https://github.com/nnn1590/HackingToolkit9DS-Deprecated-.git --recursive` If you didn't specify `--recursive` when cloning, execute: `git submodule update --init --recursive`)
+ 2. `make`
 
 ## License
 - `3dstool`: MIT License, Copyright (c) 2014-2020 Daowen Sun
