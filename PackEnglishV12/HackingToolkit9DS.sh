@@ -437,7 +437,7 @@ function extract_exe_fs() {
   read -rsn1 -p"Press any key to continue..."; echo
 }
 
-function extract_rom_fs()
+function extract_rom_fs() {
   clear
   echo
   echo Please wait, extraction in progress...
