@@ -276,7 +276,7 @@ function extract_ncch_partition() {
   echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   echo
   local _ncch_partition
-  set -ep"Write your choice (1/2/3/4/5/6/7) : " _ncch_partition
+  read -ep"Write your choice (1/2/3/4/5/6/7) : " _ncch_partition
   case "${_ncch_partition}" in
     "1" ) extract_ncch_ex_header ;;
     "2" ) extract_ncch_exe_fs ;;
@@ -404,7 +404,7 @@ function extract_file_partition() {
   echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   echo
   local _partition
-  set -ep"Write your choice (1/2/3/4/5/6) : " _partition
+  read -ep"Write your choice (1/2/3/4/5/6) : " _partition
   case "${_partition}" in
     "1" ) extract_exe_fs ;;
     "2" ) extract_rom_fs ;;
