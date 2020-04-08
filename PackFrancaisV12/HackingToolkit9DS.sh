@@ -8,28 +8,28 @@ function title_menu() {
   echo
   echo '   ##################################################'
   echo '   #                                                #'
-  echo '   #          HackingToolkit9DS by Asia81           #'
-  echo '   #           Updated: 02/20/2018 (V12)            #'
+  echo '   #         HackingToolkit9DS par Asia81           #'
+  echo '   #        Mis … jour le 20/02/2018 (V12)          #'
   echo '   #                                                #'
   echo '   ##################################################'
   echo
   echo
-  echo - Write D for extract a .3DS file
-  echo - Write R for rebuild a .3DS file
-  echo - Write CE for extract a .CIA file
-  echo - Write CR for rebuild a .CIA file
-  echo - Write ME for use a Mass Extractor
-  echo - Write MR for use a Mass Rebuilder
-  echo - Write CXI for extract a .CXI file
-  echo - Write B1 for extract a decrypted banner
-  echo - Write B2 for rebuild a decrypted banner
-  echo - Write FS1 for extract a ncch partition
-  echo - Write FS2 for extract a file partition
+  echo - Entrez D pour extraire un fichier .3DS
+  echo - Entrez R pour compiler un fichier .3DS
+  echo - Entrez CE pour extraire un fichier .CIA
+  echo - Entrez CR pour compiler un fichier .CIA
+  echo - Entrez ME pour utiliser un extracteur de masse
+  echo - Entrez MR pour utiliser un reconstructeur de masse
+  echo - Entrez CXI pour extraire un fichier .CXI
+  echo - Entrez B1 pour extraire une banniŠre
+  echo - Entrez B2 pour compiler une banniŠre
+  echo - Entrez FS1 pour extraire une partition ncch
+  echo - Entrez FS2 pour extraire les donn‚es d\'une partition
   echo
-  echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   echo
   local -u _menu
-  read -p"Write your choice: " _menu
+  read -p"Entrez votre s‚lection : " _menu
   case "${_menu}" in
     "D" ) extract_3ds ;;
     "R" ) rebuild_3ds ;;
@@ -51,11 +51,11 @@ function extract_3ds() {
   clear
   echo
   local _rom_3ds
-  read -ep"Write your input .3DS filename (without extension) : " _rom_3ds
+  read -ep"Entrez le nom de votre fichier .3DS (sans extension) : " _rom_3ds
   echo
   clear
   echo
-  echo Please wait, extraction in progress...
+  echo Veuillez patienter, extraction en cours...
   echo
   ./3dstool -xvt01267f cci DecryptedPartition0.bin DecryptedPartition1.bin DecryptedPartition2.bin DecryptedPartition6.bin DecryptedPartition7.bin "${_rom_3ds}.3ds" --header HeaderNCSD.bin > /dev/null 2>&1
   ./3dstool -xvtf cxi DecryptedPartition0.bin --header HeaderNCCH0.bin --exh DecryptedExHeader.bin --exh-auto-key --exefs DecryptedExeFS.bin --exefs-auto-key --exefs-top-auto-key --romfs DecryptedRomFS.bin --romfs-auto-key --logo LogoLZ.bin --plain PlainRGN.bin > /dev/null 2>&1
@@ -80,19 +80,19 @@ function extract_3ds() {
   ./3dstool -xv -t banner -f banner.bin --banner-dir ExtractedBanner/ > /dev/null 2>&1
   rm banner.bin > /dev/null 2>&1
   mv ExtractedBanner/banner0.bcmdl ExtractedBanner/banner.cgfx > /dev/null 2>&1  # REN to MODE DONE
-  echo 'Extraction done!'
+  echo 'Extraction termin‚e !'
   echo
-  read -rsn1 -p"Press any key to continue..."; echo
+  read -rsn1 -p"Appuyez sur une touche pour continuer..."; echo
 }
 
 function rebuild_3ds() {
   clear
   echo
   local _output_rom_3ds
-  read -ep"Write your output .3DS filename (without extension) : " _output_rom_3ds
+  read -ep"Entrez le nom de sortie de votre fichier .3DS (sans extension) : " _output_rom_3ds
   clear
   echo
-  echo Please wait, rebuild in progress...
+  echo Veuillez patienter, compilation en cours...
   echo
   mv ExtractedBanner/banner.cgfx ExtractedBanner/banner0.bcmdl > /dev/null 2>&1 # REN2MOVE done
   ./3dstool -cv -t banner -f banner.bin --banner-dir ExtractedBanner/ > /dev/null 2>&1
@@ -121,20 +121,20 @@ function rebuild_3ds() {
   rm CustomPartition2.bin > /dev/null 2>&1
   rm CustomPartition6.bin > /dev/null 2>&1
   rm CustomPartition7.bin > /dev/null 2>&1
-  echo 'Creation done!'
+  echo 'Compilation termin‚e !'
   echo
-  read -rsn1 -p"Press any key to continue..."; echo
+  read -rsn1 -p"Appuyez sur une touche pour continuer..."; echo
 }
 
 function extract_cia() {
   clear
   echo
   local _rom_cia
-  read -ep"Write your input .CIA filename (without extension) : " _rom_cia
+  read -ep"Entrez le nom de votre fichier .CIA (sans extension) : " _rom_cia
   echo
   clear
   echo
-  echo Please wait, extraction in progress...
+  echo Veuillez patienter, extraction en cours...
   echo
   ./ctrtool --content=DecryptedApp "${_rom_cia}.cia" > /dev/null 2>&1
   mv DecryptedApp.0000.* DecryptedPartition0.bin > /dev/null 2>&1
@@ -156,21 +156,21 @@ function extract_cia() {
   ./3dstool -xv -t banner -f banner.bin --banner-dir ExtractedBanner/ > /dev/null 2>&1
   rm banner.bin > /dev/null 2>&1
   mv ExtractedBanner/banner0.bcmdl ExtractedBanner/banner.cgfx > /dev/null 2>&1
-  echo 'Extraction done!'
+  echo 'Extraction termin‚e !'
   echo
-  read -rsn1 -p"Press any key to continue..."; echo
+  read -rsn1 -p"Appuyez sur une touche pour continuer..."; echo
 }
 
 function rebuild_cia() {
   clear
   echo
   local _output_rom_cia _minor_ver _micro_ver
-  read -ep"Write your output .CIA filename (without extension) : " _output_rom_cia
-  read -ep"Original minor version (write 0 if you don't know) : " _minor_ver
-  read -ep"Original micro version (write 0 if you don't know) : " _micro_ver
+  read -ep"Entrez le nom de sortie de votre fichier .CIA (sans extension) : " _output_rom_cia
+  read -ep"Version minor originelle (entrez 0 si vous ne savez pas) : " _minor_ver
+  read -ep"Version micro originelle (entrez 0 si vous ne savez pas) : " _micro_ver
   clear
   echo
-  echo Please wait, rebuild in progress...
+  echo Veuillez patienter, compilation en cours...
   echo
   mv ExtractedBanner/banner.cgfx ExtractedBanner/banner0.bcmdl > /dev/null 2>&1
   ./3dstool -cv -t banner -f banner.bin --banner-dir ExtractedBanner/ > /dev/null 2>&1
@@ -195,33 +195,33 @@ function rebuild_cia() {
   if [ -e "CustomPartition1.bin" ]; then _arg_1="-content CustomPartition1.bin:1:0x01"; fi > /dev/null 2>&1
   if [ -e "CustomPartition2.bin" ]; then _arg_2="-content CustomPartition2.bin:2:0x02"; fi > /dev/null 2>&1
   ./makerom -target p -ignoresign -f cia ${_arg_0} ${_arg_1} ${_arg_2} -minor "${_minor_ver}" -micro "${_micro_ver}" -o "${_output_rom_cia}_Edited.cia" > /dev/null 2>&1
-  echo 'Creation done!'
+  echo 'Compilation termin‚e !'
   echo
-  read -rsn1 -p"Press any key to continue..."; echo
+  read -rsn1 -p"Appuyez sur une touche pour continuer..."; echo
 }
 
 decrypted_cxi() {
   clear
   echo
   local _rom_cxi
-  read -ep"Write your input .CXI filename (without extension) : " _rom_cxi
+  read -ep"Entrez le nom de votre fichier .CXI (sans extension) : " _rom_cxi
   echo
   local -u _decompress_code
   local _dc
-  read -ep"Decompress the code.bin file (n/y) : " _decompress_code
-  if [ "${_decompress_code}" == "Y" ]; then _dc="--decompresscode"; else _dc=""; fi
+  read -ep"D‚compresser le fichier code.bin (n/o) : " _decompress_code
+  if [ "${_decompress_code}" == "O" ]; then _dc="--decompresscode"; else _dc=""; fi
   clear
   echo
-  echo Please wait, extraction in progress...
+  echo Veuillez patienter, extraction en cours...
   echo
   ./ctrtool --ncch=0 --exheader=DecryptedExHeader.bin "${_rom_cxi}.cxi" > /dev/null 2>&1
   ./ctrtool --ncch=0 --exefs=DecryptedExeFS.bin "${_rom_cxi}.cxi" > /dev/null 2>&1
   ./ctrtool --ncch=0 --romfs=DecryptedRomFS.bin "${_rom_cxi}.cxi" > /dev/null 2>&1
   ./ctrtool -t romfs --romfsdir=./ExtractedRomFS DecryptedRomFS.bin > /dev/null 2>&1
   ./ctrtool -t exefs --exefsdir=./ExtractedExeFS DecryptedExeFS.bin ${_dc} > /dev/null 2>&1
-  echo 'Extraction done!'
+  echo 'Extraction termin‚e !'
   echo
-  read -rsn1 -p"Press any key to continue..."; echo
+  read -rsn1 -p"Appuyez sur une touche pour continuer..."; echo
 }
 
 function mass_extractor() {
@@ -246,9 +246,9 @@ function extract_banner() {
   echo
   ./3dstool -x -t banner -f banner.bin --banner-dir ExtractedBanner/ > /dev/null 2>&1
   mv ExtractedBanner/banner0.bcmdl ExtractedBanner/banner.cgfx > /dev/null 2>&1
-  echo 'Banner extracted!'
+  echo 'BanniŠre extraite !'
   echo
-  read -rsn1 -p"Press any key to continue..."; echo
+  read -rsn1 -p"Appuyez sur une touche pour continuer..."; echo
 }
 
 function rebuild_banner() {
@@ -257,26 +257,26 @@ function rebuild_banner() {
   mv ExtractedBanner/banner.cgfx ExtractedBanner/banner0.bcmdl > /dev/null 2>&1
   ./3dstool -c -t banner -f banner.bin --banner-dir ExtractedBanner/ > /dev/null 2>&1
   mv ExtractedBanner/banner0.bcmdl ExtractedBanner/banner.cgfx > /dev/null 2>&1
-  echo 'Banner created!'
+  echo 'BanniŠre compil‚e !'
   echo
-  read -rsn1 -p"Press any key to continue..."; echo
+  read -rsn1 -p"Appuyez sur une touche pour continuer..."; echo
 }
 
 function extract_ncch_partition() {
   clear
   echo
-  echo  1 = Extract DecryptedExHeader.bin from NCCH0
-  echo  2 = Extract DecryptedExeFS.bin from NCCH0
-  echo  3 = Extract DecryptedRomFS.bin from NCCH0
-  echo  4 = Extract DecryptedManual.bin from NCCH1
-  echo  5 = Extract DecryptedDownloadPlay.bin from NCCH2
-  echo  6 = Extract DecryptedN3DSUpdate.bin from NCCH6
-  echo  7 = Extract DecryptedO3DSUpdate.bin from NCCH7
+  echo  1 = Extraire DecryptedExHeader.bin de la partition NCCH0
+  echo  2 = Extraire DecryptedExeFS.bin de la partition NCCH0
+  echo  3 = Extraire DecryptedRomFS.bin de la partition NCCH0
+  echo  4 = Extraire DecryptedManual.bin de la partition NCCH1
+  echo  5 = Extraire DecryptedDownloadPlay.bin de la partition NCCH2
+  echo  6 = Extraire DecryptedN3DSUpdate.bin de la partition NCCH6
+  echo  7 = Extraire DecryptedO3DSUpdate.bin de la partition NCCH7
   echo
-  echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   echo
   local _ncch_partition
-  set -ep"Write your choice (1/2/3/4/5/6/7) : " _ncch_partition
+  set -ep"Entrez votre choix (1/2/3/4/5/6/7) : " _ncch_partition
   case "${_ncch_partition}" in
     "1" ) extract_ncch_ex_header ;;
     "2" ) extract_ncch_exe_fs ;;
@@ -292,28 +292,28 @@ function extract_ncch_ex_header() {
   clear
   echo
   local _file_name
-  read -ep"Write your 3DS|CXI filename (with extension): " _file_name
+  read -ep"Entrez le nom de votre fichier 3DS|CXI (extension comprise) : " _file_name
   clear
   ./ctrtool --ncch=0 --exheader=DecryptedExHeader.bin "${_file_name}" > /dev/null 2>&1
   echo
-  echo 'Extraction done!'
+  echo 'Extraction termin‚e !'
   echo
-  read -rsn1 -p"Press any key to continue..."; echo
+  read -rsn1 -p"Appuyez sur une touche pour continuer..."; echo
 }
 
 function extract_ncch_exe_fs() {
   clear
   echo
   local _file_name
-  read -ep"Write your 3DS|CXI filename (with extension): " _file_name
+  read -ep"Entrez le nom de votre fichier 3DS|CXI (extension comprise) : " _file_name
   clear
   echo
-  echo Please wait, extraction in progress...
+  echo Veuillez patienter, extraction en cours...
   ./ctrtool --ncch=0 --exefs=DecryptedExeFS.bin "${_file_name}" > /dev/null 2>&1
   echo
   local -u _ask2extract
-  read -ep'Extraction done! Would you extract it now (n/y) : ' _ask2extract
-  if [ "${_ask2extract}" == "Y" ]; then extract_exe_fs; fi
+  read -ep'Extraction termin‚e ! Souhaitez-vous l'"'"'extraire (n/o) : ' _ask2extract
+  if [ "${_ask2extract}" == "O" ]; then extract_exe_fs; fi
 }
 
 :ExtractNCCH-RomFS
@@ -321,91 +321,91 @@ function extract_ncch_rom_fs() {
   clear
   echo
   local _file_name
-  read -ep"Write your 3DS|CXI filename (with extension): " _file_name
+  read -ep"Entrez le nom de votre fichier 3DS|CXI (extension comprise) : " _file_name
   clear
   echo
-  echo Please wait, extraction in progress...
+  echo Veuillez patienter, extraction en cours...
   ./ctrtool --ncch=0 --romfs=DecryptedRomFS.bin "${_file_name}" > /dev/null 2>&1
   echo
   local -u _ask2extract
-  read -ep'Extraction done! Would you extract it now (n/y) : ' _ask2extract
-  if [ "${_ask2extract}" == "Y" ]; then extract_rom_fs; fi
+  read -ep'Extraction termin‚e ! Souhaitez-vous l'"'"'extraire (n/o) : ' _ask2extract
+  if [ "${_ask2extract}" == "O" ]; then extract_rom_fs; fi
 }
 
 function extract_ncch_manual() {
   clear
   echo
   local _file_name
-  read -ep"Write your 3DS|CXI filename (with extension): " _file_name
+  read -ep"Entrez le nom de votre fichier 3DS|CXI (extension comprise) : " _file_name
   clear
   echo
-  echo Please wait, extraction in progress...
+  echo Veuillez patienter, extraction en cours...
   ./ctrtool --ncch=1 --romfs=DecryptedManual.bin "${_file_name}" > /dev/null 2>&1
   echo
   local -u _ask2extract
-  read -ep'Extraction done! Would you extract it now (n/y) : ' _ask2extract
-  if [ "${_ask2extract}" == "Y" ]; then extract_manual; fi
+  read -ep'Extraction termin‚e ! Souhaitez-vous l'"'"'extraire (n/o) : ' _ask2extract
+  if [ "${_ask2extract}" == "O" ]; then extract_manual; fi
 }
 
 function extract_ncch_download_play() {
   clear
   echo
   local _file_name
-  read -ep"Write your 3DS|CXI filename (with extension): " _file_name
+  read -ep"Entrez le nom de votre fichier 3DS|CXI (extension comprise) : " _file_name
   clear
   echo
-  echo Please wait, extraction in progress...
+  echo Veuillez patienter, extraction en cours...
   ./ctrtool --ncch=2 --romfs=DecryptedDownloadPlay.bin "${_file_name}" > /dev/null 2>&1
   echo
   local -u _ask2extract
-  read -ep'Extraction done! Would you extract it now (n/y) : ' _ask2extract
-  if [ "${_ask2extract}" == "Y" ]; then extract_download_play; fi
+  read -ep'Extraction termin‚e ! Souhaitez-vous l'"'"'extraire (n/o) : ' _ask2extract
+  if [ "${_ask2extract}" == "O" ]; then extract_download_play; fi
 }
 
 function extract_ncch_n3ds_update() {
   clear
   echo
   local _file_name
-  read -ep"Write your 3DS|CXI filename (with extension): " _file_name
+  read -ep"Entrez le nom de votre fichier 3DS|CXI (extension comprise) : " _file_name
   clear
   echo
-  echo Please wait, extraction in progress...
+  echo Veuillez patienter, extraction en cours...
   ./ctrtool --ncch=6 --romfs=DecryptedN3DSUpdate.bin "${_file_name}" > /dev/null 2>&1
   echo
   local -u _ask2extract
-  read -ep'Extraction done! Would you extract it now (n/y) : ' _ask2extract
-  if [ "${_ask2extract}" == "Y" ]; then extract_n3ds_update; fi
+  read -ep'Extraction termin‚e ! Souhaitez-vous l'"'"'extraire (n/o) : ' _ask2extract
+  if [ "${_ask2extract}" == "O" ]; then extract_n3ds_update; fi
 }
 
 function extract_ncch_o3ds_update() {
   clear
   echo
   local _file_name
-  read -ep"Write your 3DS|CXI filename (with extension): " _file_name
+  read -ep"Entrez le nom de votre fichier 3DS|CXI (extension comprise) : " _file_name
   clear
   echo
-  echo Please wait, extraction in progress...
+  echo Veuillez patienter, extraction en cours...
   ./ctrtool --ncch=7 --romfs=DecryptedO3DSUpdate.bin "${_file_name}" > /dev/null 2>&1
   echo
   local -u _ask2extract
-  read -ep'Extraction done! Would you extract it now (n/y) : ' _ask2extract
-  if [ "${_ask2extract}" == "Y" ]; then extract_o3ds_update; fi
+  read -ep'Extraction termin‚e ! Souhaitez-vous l'"'"'extraire (n/o) : ' _ask2extract
+  if [ "${_ask2extract}" == "O" ]; then extract_o3ds_update; fi
 }
 
 function extract_file_partition() {
   clear
   echo
-  echo  1 = Extract contents from DecryptedExeFS.bin
-  echo  2 = Extract contents from DecryptedRomFS.bin
-  echo  3 = Extract contents from DecryptedManual.bin
-  echo  4 = Extract contents from DecryptedDownloadPlay.bin
-  echo  5 = Extract contents from DecryptedN3DSUpdate.bin
-  echo  6 = Extract contents from DecryptedO3DSUpdate.bin
+  echo  1 = Extraire le contenu du fichier DecryptedExeFS.bin
+  echo  2 = Extraire le contenu du fichier DecryptedRomFS.bin
+  echo  3 = Extraire le contenu du fichier DecryptedManual.bin
+  echo  4 = Extraire le contenu du fichier DecryptedDownloadPlay.bin
+  echo  5 = Extraire le contenu du fichier DecryptedN3DSUpdate.bin
+  echo  6 = Extraire le contenu du fichier DecryptedO3DSUpdate.bin
   echo
-  echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   echo
   local _partition
-  set -ep"Write your choice (1/2/3/4/5/6) : " _partition
+  set -ep"Entrez votre choix (1/2/3/4/5/6) : " _partition
   case "${_partition}" in
     "1" ) extract_exe_fs ;;
     "2" ) extract_rom_fs ;;
@@ -420,12 +420,12 @@ function extract_exe_fs() {
   clear
   echo
   local -u _decompress_code
-  read -ep"Decompress the code.bin file (n/y) : " _decompress_code
+  read -ep"D‚compresser le fichier code.bin (n/o) : " _decompress_code
   clear
   echo
-  echo Please wait, extraction in progress...
+  echo Veuillez patienter, extraction en cours...
   local _dc
-  if [ "${_decompress_code}" == "Y" ]; then _dc="--decompresscode"; else _dc=""; fi
+  if [ "${_decompress_code}" == "O" ]; then _dc="--decompresscode"; else _dc=""; fi
   ./ctrtool -t exefs --exefsdir=./ExtractedExeFS DecryptedExeFS.bin ${_dc} > /dev/null 2>&1
   rm -f ExtractedExeFS/.bin > /dev/null 2>&1  # Is this typo?
   cp ExtractedExeFS/banner.bin banner.bin > /dev/null 2>&1
@@ -433,64 +433,64 @@ function extract_exe_fs() {
   mv ExtractedBanner/banner0.bcmdl ExtractedBanner/banner.cgfx > /dev/null 2>&1
   rm banner.bin > /dev/null 2>&1
   echo
-  echo Extraction done
+  echo 'Extraction termin‚e !'
   echo
-  read -rsn1 -p"Press any key to continue..."; echo
+  read -rsn1 -p"Appuyez sur une touche pour continuer..."; echo
 }
 
 function extract_rom_fs()
   clear
   echo
-  echo Please wait, extraction in progress...
+  echo Veuillez patienter, extraction en cours...
   ./ctrtool -t romfs --romfsdir=./ExtractedRomFS DecryptedRomFS.bin > /dev/null 2>&1
   echo
-  echo 'Extraction done!'
+  echo 'Extraction termin‚e !'
   echo
-  read -rsn1 -p"Press any key to continue..."; echo
+  read -rsn1 -p"Appuyez sur une touche pour continuer..."; echo
 }
 
 function extract_manual() {
   clear
   echo
-  echo Please wait, extraction in progress...
+  echo Veuillez patienter, extraction en cours...
   ./ctrtool -t romfs --romfsdir=./ExtractedManual DecryptedManual.bin > /dev/null 2>&1
   echo
-  echo 'Extraction done!'
+  echo 'Extraction termin‚e !'
   echo
-  read -rsn1 -p"Press any key to continue..."; echo
+  read -rsn1 -p"Appuyez sur une touche pour continuer..."; echo
 }
 
 function extract_download_play() {
   clear
   echo
-  echo Please wait, extraction in progress...
+  echo Veuillez patienter, extraction en cours...
   ./ctrtool -t romfs --romfsdir=./ExtractedDownloadPlay DecryptedDownloadPlay.bin > /dev/null 2>&1
   echo
-  echo 'Extraction done!'
+  echo 'Extraction termin‚e !'
   echo
-  read -rsn1 -p"Press any key to continue..."; echo
+  read -rsn1 -p"Appuyez sur une touche pour continuer..."; echo
 }
 
 function extract_o3ds_update() {
   clear
   echo
-  echo Please wait, extraction in progress...
+  echo Veuillez patienter, extraction en cours...
   ./ctrtool -t romfs --romfsdir=./ExtractedO3DSUpdate DecryptedO3DSUpdate.bin > /dev/null 2>&1
   echo
-  echo 'Extraction done!'
+  echo 'Extraction termin‚e !'
   echo
-  read -rsn1 -p"Press any key to continue..."; echo
+  read -rsn1 -p"Appuyez sur une touche pour continuer..."; echo
 }
 
 function extract_n3ds_update() {
   clear
   echo
-  echo Please wait, extraction in progress...
+  echo Veuillez patienter, extraction en cours...
   ./ctrtool -t romfs --romfsdir=./ExtractedN3DSUpdate DecryptedN3DSUpdate.bin > /dev/null 2>&1
   echo
-  echo 'Extraction done!'
+  echo 'Extraction termin‚e !'
   echo
-  read -rsn1 -p"Press any key to continue..."; echo
+  read -rsn1 -p"Appuyez sur une touche pour continuer..."; echo
 }
 
 while :; do title_menu || exit ${?}; done
