@@ -316,7 +316,6 @@ function extract_ncch_exe_fs() {
   if [ "${_ask2extract}" == "Y" ]; then extract_exe_fs; fi
 }
 
-:ExtractNCCH-RomFS
 function extract_ncch_rom_fs() {
   clear
   echo
